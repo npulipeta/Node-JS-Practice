@@ -1,0 +1,217 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"1.0.0",
+      "title":"Bears Database",
+      "description":"By using this api, you can get list of bears, add a bear, get bear by name, Alter bear name and delete a bear as well !!",
+      "termsOfService":"http://swagger.io/terms/"
+   },
+   "basePath":"/api/",
+   "tags":[
+      {
+         "name":"Bears",
+         "description":"API to Access Bears Database"
+      }
+   ],
+   "schemes":[
+      "http"
+   ],
+   "consumes":[
+      "application/json"
+   ],
+   "produces":[
+      "application/json"
+   ],
+   "paths":{
+      "/bears":{
+         "post":{
+            "tags":[
+               "Bears"
+            ],
+            "description":"Add a new bear to DB",
+            "operationId":"for the URL",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"name",
+                  "in":"body",
+                  "description":"Job to add to the database",
+                  "required":true,
+                  "schema":{
+                     "$ref":"#/definitions/create"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"create response",
+                  "schema":{
+                     "$ref":"#/definitions/response"
+                  }
+               }
+            }
+         },
+         "put":{
+            "tags":[
+               "Bears"
+            ],
+            "description":"update a bear by name",
+            "operationId":"update",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"name",
+                  "in":"body",
+                  "description":"name to update",
+                  "required":true,
+                  "type":"string",
+                  "schema":{
+                     "$ref":"#/definitions/create"
+                  }
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"update response",
+                  "schema":{
+                     "$ref":"#/definitions/response"
+                  }
+               }
+            }
+         }
+      },
+
+      "/bears/{name}":{
+         "delete":{
+            "tags":[
+               "Bears"
+            ],
+            "description":"Deletes a bear by name",
+            "operationId":"delete",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"name",
+                  "in":"path",
+                  "description":"ID to delete",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"delete response",
+                  "schema":{
+                     "$ref":"#/definitions/response"
+                  }
+               }
+            }
+         },
+
+         "get":{
+            "tags":[
+               "Bears"
+            ],
+            "description":"Returns the data of bear by name",
+            "operationId":"findByname",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"name",
+                  "in":"path",
+                  "description":"name to fetch",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"response",
+                  "schema":{
+                     "$ref":"#/definitions/response"
+                  }
+               }
+            }
+         }
+      }
+   },
+   "definitions":{
+      "create":{
+         "properties":{
+            "name":{
+               "required":true,
+               "type":"string",
+               "example":"mathmaticial"
+            },
+            "age":{
+               "required":true,
+               "type":"integer",
+               "format":"int64",
+               "example":500
+            }
+         }
+      },
+      "response1":{
+         "properties":{
+            "jobID":{
+               "required":true,
+               "type":"string",
+               "example":"23423456543"
+            },
+            "request":{
+               "required":true,
+               "type":"schema",
+               "example":{
+                  "eventId":"mathmaticial",
+                  "numberRequired":500
+               }
+            }
+         }
+      },
+      "response":{
+         "properties":{
+            "name":{
+               "required":true,
+               "type":"string",
+               "example":"12321432423"
+            },
+            "age":{
+               "required":true,
+               "type":"integer",
+               "format":"int64",
+               "example":500
+            }
+         }
+      },
+      "delete":{
+         "properties":{
+            "jobID":{
+               "required":true,
+               "type":"string",
+               "example":"234344234234"
+            },
+            "status":{
+               "required":true,
+               "type":"string",
+               "example":"deleted"
+            }
+         }
+      },
+      "400error":{
+         "properties":{
+            "message":{
+               "type":"string",
+               "example":"400 Bad Request"
+            }
+         }
+      }
+   }
+}
