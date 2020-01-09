@@ -17,7 +17,7 @@
     "boom": "^7.2.0",
     "express": "~4.16.1",
     "hapi": "^17.5.3",
-    "mongoose": "~4.11.14",
+    "mongoose": "~5.7.5",
     "morgan": "~1.9.0",
     "mysql": "^2.16.0",
     "request-promise": "^4.2.2",
