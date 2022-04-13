@@ -11,7 +11,7 @@
   "author": "Chris Sevilleja <scotch.io>",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
     "boom": "^7.2.0",
